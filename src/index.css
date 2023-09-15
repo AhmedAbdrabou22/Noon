@@ -101,18 +101,20 @@ body{
     width: 90%;
     height: 192px;
 }
-/* .offerOne .dish{
-    background-image: url(./Images/dish.jpg);
+.offerOne div , .offerTwo div{
+    position: relative;
 }
-.offerOne .choose{
-    background-image: url(./Images/choose.jpg);
+.offerOne div .info , .offerTwo div .info{
+    position: absolute;
+    top:15px;
+    background-color: rgb(254, 238, 0) !important;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: red;
+    padding: 0 10px;
+    height:25px;
+    text-align: center;
 }
-.offerTwo .hour{
-    background-image: url(./Images/hour.jpg);
-}
-.offerTwo .lwasem{
-    background-image: url(./Images/lwasem.jpg);
-} */
 
 @media(max-width:768px){
     .header{
@@ -162,5 +164,13 @@ body{
     }
     .collection div{
         width:100% !important;
+    }
+    .offerOne div .info{
+        width:50% !important;
+        margin: auto;
+    }
+    .offerTwo div .info{
+        width:70% !important;
+        margin: auto;
     }
 }

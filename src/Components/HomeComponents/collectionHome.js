@@ -1,13 +1,6 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import One from '../../Images/one.png'
-// import two from '../../Images/two.jpg'
-// import three from '../../Images/three.jpg'
-// import four from '../../Images/two.jpg'
-// import five from '../../Images/five.jpg'
-// import six from '../../Images/six.avif'
 import hour from '../../Images/hour.jpg'
 import dish from '../../Images/dish.jpg'
 import lwasem from '../../Images/lwasem.jpg'
@@ -29,17 +22,21 @@ const collectionHome = () => {
                     <div className='d-flex justify-content-between align-items-center offerOne'>
                         <div className='dish'>
                             <img src={dish} alt="data" />
+                            <div className='info'><p>عروض البيت</p></div>
                         </div>
                         <div className='choose'>
                             <img src={choose} alt="data" />
+                            <div className='info'><p>عروض الازياء</p></div>
                         </div>
                     </div>
                     <div className='d-flex justify-content-between align-items-center offerTwo mt-2'>
                         <div className='hour'>
                             <img src={hour} alt="data" />
+                            <div className='info'><p>عروض الالكترونيات</p></div>
                         </div>
                         <div className='lwasem'>
                             <img src={lwasem} alt="data" />
+                            <div className='info'><p>عروض الجمال</p></div>
                         </div>
                     </div>
                 </div>
