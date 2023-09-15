@@ -166,11 +166,11 @@ body{
         width:100% !important;
     }
     .offerOne div .info{
-        width:100% !important;
+        width:90% !important;
         margin: auto;
     }
     .offerTwo div .info{
-        width:100% !important;
+        width:90% !important;
         margin: auto;
     }
 }
