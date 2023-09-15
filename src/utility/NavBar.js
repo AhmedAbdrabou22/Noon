@@ -10,12 +10,12 @@ const NavBar = () => {
         <Navbar expand="lg" className="navBar">
             <Container fluid={true}>
                 <div className='d-flex justify-content-between align-items-center header' style={{width:"62%"}}>
-                    <div className='w-25 brand'>
+                    <div className='brand'>
                         <Navbar.Brand href="/">
                             <img src={logo} alt="logo" />
                         </Navbar.Brand>
                     </div>
-                    <div className='search w-75'>
+                    <div className='search'>
                         <input type="search" placeholder='انت بتدور ع ايه' />
                     </div>
                 </div>

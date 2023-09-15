@@ -62,7 +62,7 @@ const SliderCom = () => {
         ],
     };
     return (
-        <div className='shadow' style={{ paddingBottom: "15px", borderRadius: "10px" }}>
+        <div className='' style={{ padding: "15px", borderRadius: "10px" , background:"white" }}>
             <Carousel activeIndex={index} onSelect={handleSelect} className="caursol">
                 <Carousel.Item>
                     <img src={SliderOne} alt="data" />

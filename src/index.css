@@ -7,6 +7,7 @@ body{
     font-weight: 700;
     font-family: 'Almarai', sans-serif;
     overflow-x: hidden !important;
+    background:#f7f7fa !important;
 }
 
 /**Style Nav Bar */
@@ -18,8 +19,8 @@ body{
     padding:10px;
 }
 .search{
-    width:40%;
-    margin: auto;
+    width:95%;  
+    margin-right: auto;
 }
 .search input[type="search"]{
     width:100% !important;
@@ -40,7 +41,6 @@ body{
 }
 .caursol img{
     width: 100%;
-    height: 65vh;
 }
 .slider-item{
     width:100% !important;
@@ -67,6 +67,9 @@ body{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+.brand{
+    padding-left:20px
+}
 
 
 /**Style category in slider component */
@@ -88,6 +91,29 @@ body{
     width: 90%;
 }
 
+/**Style Colection */
+.offerOne .dish , .offerOne .choose , .offerTwo .hour , .offerTwo .lwasem{
+    width:70% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.offerOne .dish  img, .offerOne .choose  img, .offerTwo .hour  img, .offerTwo .lwasem img{
+    width: 90%;
+    height: 192px;
+}
+/* .offerOne .dish{
+    background-image: url(./Images/dish.jpg);
+}
+.offerOne .choose{
+    background-image: url(./Images/choose.jpg);
+}
+.offerTwo .hour{
+    background-image: url(./Images/hour.jpg);
+}
+.offerTwo .lwasem{
+    background-image: url(./Images/lwasem.jpg);
+} */
+
 @media(max-width:768px){
     .header{
         width:85% !important;
@@ -97,7 +123,7 @@ body{
     .header .brand{
         width:100% !important;
     }
-    .header .search{
+    .search{
         width: 100% !important;
     }
     .link{
@@ -113,7 +139,6 @@ body{
     }
     .caursol img{
         width: 100%;
-        height: 50vh;
     }
     .categoryItem{
         width:80px !important;
@@ -127,5 +152,15 @@ body{
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
+    }
+    .brand img{
+        width:50%;
+    }
+    .collection{
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+    }
+    .collection div{
+        width:100% !important;
     }
 }
