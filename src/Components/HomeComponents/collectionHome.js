@@ -12,7 +12,7 @@ import offers from '../../Images/offers.avif'
 const collectionHome = () => {
     return (
 
-        <Container>
+        <div className='containerCustomized'>
             <div className='d-flex justify-content-between align-items-center mt-5 collection' dir='ltr'>
                 <div className='discount p-3' style={{ background: "white" , width:"32.5%" }}>
                     <div style={{ marginBottom: "10px" }}><img src={One} alt="data" style={{width:"100%"}}/></div>
@@ -59,7 +59,7 @@ const collectionHome = () => {
                     </div>
                 </div>
             </div>
-        </Container>
+        </div>
 
     )
 }

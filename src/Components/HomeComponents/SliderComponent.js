@@ -15,6 +15,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Container from 'react-bootstrap/Container';
 
 const SliderCom = () => {
     const dispatch = useDispatch();
@@ -23,9 +24,7 @@ const SliderCom = () => {
     }, [])
     const categories = useSelector(state => state.CategoryReducer.category)
 
-    if (categories) {
-        console.log(categories);
-    }
+
 
     const [index, setIndex] = useState(0);
 
@@ -62,46 +61,48 @@ const SliderCom = () => {
         ],
     };
     return (
-        <div className='' style={{ padding: "15px", borderRadius: "10px" , background:"white" }}>
-            <Carousel activeIndex={index} onSelect={handleSelect} className="caursol">
-                <Carousel.Item>
-                    <img src={SliderOne} alt="data" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={SliderTwo} alt="data" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={SliderThree} alt="data" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={SliderFour} alt="data" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={SliderFive} alt="data" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={SliderSix} alt="data" />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img src={SliderSeven} alt="data" />
-                </Carousel.Item>
-            </Carousel>
+        <div className='containerCustomized mt-2'>
+            <div className='mt-2' style={{ padding: "15px", borderRadius: "10px", background: "white" }}>
+                <Carousel activeIndex={index} onSelect={handleSelect} className="caursol">
+                    <Carousel.Item>
+                        <img src={SliderOne} alt="data" />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={SliderTwo} alt="data" />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={SliderThree} alt="data" />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={SliderFour} alt="data" />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={SliderFive} alt="data" />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={SliderSix} alt="data" />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img src={SliderSeven} alt="data" />
+                    </Carousel.Item>
+                </Carousel>
 
 
-            <Slider {...settings} className='slider-item mt-3'>
-                {
-                    categories.data ? (
-                        categories.data.map((item, index) => {
-                            return (<div className='categoryItem'>
+                <Slider {...settings} className='slider-item mt-3'>
+                    {
+                        categories.data ? (
+                            categories.data.map((item, index) => {
+                                return (<div className='categoryItem' key={item.id}>
 
-                                <img src={item.image} alt="1" />
-                                <p>{item.title_ar}</p>
+                                    <img src={item.image} alt="1" />
+                                    <p>{item.title_ar}</p>
 
-                            </div>)
-                        })
-                    ) : (<Spinner animation="grow" />)
-                }
-            </Slider>
+                                </div>)
+                            })
+                        ) : (<Spinner animation="grow" />)
+                    }
+                </Slider>
+            </div>
         </div>
     )
 }

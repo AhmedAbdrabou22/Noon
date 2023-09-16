@@ -7,7 +7,7 @@ const initial = {
 
 const ProductReducer = (state = initial, action) => {
     switch (action.type) {
-        case "GetAllProducts":
+        case "GetAllProduct":
             return {
                 ...state,
                 product: action.payload,

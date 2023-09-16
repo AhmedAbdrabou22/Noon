@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 body{
-    font-weight: 700;
+    font-weight: 400;
     font-family: 'Almarai', sans-serif;
     overflow-x: hidden !important;
     background:#f7f7fa !important;
+}
+.containerCustomized{
+    width:95% !important;
+    margin: auto !important;
 }
 
 /**Style Nav Bar */
@@ -115,7 +119,13 @@ body{
     height:25px;
     text-align: center;
 }
-
+/**Style Container Products */
+.textDescription{
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipse !important;
+}
 @media(max-width:768px){
     .header{
         width:85% !important;
@@ -172,5 +182,10 @@ body{
     .offerTwo div .info{
         width:90% !important;
         margin: auto;
+    }
+    /**Style Container Products */
+    .containerProduct{
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
