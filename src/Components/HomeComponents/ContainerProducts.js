@@ -13,14 +13,11 @@ const ContainerProducts = () => {
     }, [])
 
     const products = useSelector(state => state.ProductReducer.product)
-    if (products) {
-        console.log(products.data);
-    }
     return (
         <div className='containerCustomized'>
             <div className='mt-5'>
                 <Container>
-                    <Subtitle title="مقترحه لك" />
+                    <Subtitle title="مقترحه لك" othertitle=""/>
                 </Container>
                 <div className='mt-3 p-3' style={{ background: "rgb(241, 244, 253)" }}>
                     <div className='row'>

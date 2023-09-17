@@ -2,6 +2,7 @@
 
 const initial = {
     product: [],
+    SubCategoryproductData: [],
     loading: true,
 }
 
@@ -11,6 +12,12 @@ const ProductReducer = (state = initial, action) => {
             return {
                 ...state,
                 product: action.payload,
+                loading: false
+            }
+        case "GetSubCategoryProducts":
+            return {
+                ...state,
+                SubCategoryproductData: action.payload,
                 loading: false
             }
         case "Get_Errors":

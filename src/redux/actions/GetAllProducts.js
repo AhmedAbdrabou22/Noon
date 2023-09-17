@@ -1,3 +1,4 @@
+import axios from 'axios'
 import baseURL from '../../Api/baseUrl'
 const getAllProducts = () => {
     return async (dispatch) => {
@@ -9,5 +10,15 @@ const getAllProducts = () => {
         }
     }
 }
+const getSubCategoryProducts = () => {
+    return async (dispatch) => {
+        try {
+            let res = await axios.get('https://api.lepgo.online/api/v1/products?page=3')
+            dispatch({ type: "GetSubCategoryProducts", payload: res.data })
+        } catch (e) {
+            dispatch({ type: "Get_Errors", payload: "Error through Loadin Data" + e })
+        }
+    }
+}
 
-export {getAllProducts}
+export {getAllProducts , getSubCategoryProducts}
