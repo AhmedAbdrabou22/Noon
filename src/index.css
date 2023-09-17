@@ -126,6 +126,14 @@ body{
     overflow: hidden;
     text-overflow: ellipse !important;
 }
+
+/**Style Special Offer */
+.bestOffer{
+    text-align: center;
+}
+.bestOffer img{
+    width: 90%;
+}
 @media(max-width:768px){
     .header{
         width:85% !important;
@@ -187,5 +195,9 @@ body{
     .containerProduct{
         flex-direction: column;
         flex-wrap: wrap;
+    }
+    /**style nestOffer */
+    .bestOffer img{
+        width: 100%;
     }
 }
