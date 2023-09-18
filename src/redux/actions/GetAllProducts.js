@@ -20,5 +20,15 @@ const getSubCategoryProducts = () => {
         }
     }
 }
+const getSomeProducts = () => {
+    return async (dispatch) => {
+        try {
+            let res = await axios.get('https://api.lepgo.online/api/v1/products?page=2')
+            dispatch({ type: "getSomeDataProducts", payload: res.data })
+        } catch (e) {
+            dispatch({ type: "Get_Errors", payload: "Error through Loadin Data" + e })
+        }
+    }
+}
 
-export {getAllProducts , getSubCategoryProducts}
+export {getAllProducts , getSubCategoryProducts ,getSomeProducts}
