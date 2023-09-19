@@ -17,9 +17,6 @@ const SubCategoryProducts = () => {
 
     const subProduct = useSelector(state => state.ProductReducer.SubCategoryproductData)
 
-    if (subProduct) {
-        console.log(subProduct);
-    }
 
     return (
         <div className='containerCustomized'>

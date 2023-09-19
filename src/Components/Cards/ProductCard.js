@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Card from 'react-bootstrap/Card';
 const ProductCard = ({ image, title, desc, amount, totalRate, discount }) => {
-    console.log(discount);
     return (
         <div>
             <Card style={{ maxHeight: "100%" }}>

@@ -15,9 +15,6 @@ const OffersHomePage = () => {
 
 
     const data = useSelector(state => state.ProductReducer.data)
-    if (data) {
-        console.log(data.data);
-    }
     return (
         <div className='containerCustomized'>
             <div  style={{marginTop:"100px"}}>
