@@ -6,6 +6,7 @@ import SpecialOffer from '../../utility/SpecialOffer'
 import SubCategoryProducts from '../../Components/HomeComponents/SubCategoryProducts'
 import GamalGona from '../../Components/HomeComponents/GamalGona'
 import OffersHomePage from '../../Components/HomeComponents/offersHomePage'
+import OfferDolap from '../../Components/HomeComponents/OfferDolap'
 const HomePage = () => {
     return (
         <div>
@@ -16,6 +17,7 @@ const HomePage = () => {
             <SubCategoryProducts/>
             <GamalGona/>
             <OffersHomePage/>
+            <OfferDolap/>
         </div>
     )
 }

@@ -33,6 +33,10 @@ body {
     width: 95% !important;
     margin: auto !important;
 }
+.infoCategory{
+    text-decoration: none !important;
+    color:black !important;
+}
 
 .otherTitle {
     background-color: #000;

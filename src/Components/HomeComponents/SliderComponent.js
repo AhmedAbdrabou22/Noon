@@ -15,7 +15,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Container from 'react-bootstrap/Container';
+import { Link, useNavigate } from "react-router-dom"
 
 const SliderCom = () => {
     const dispatch = useDispatch();
@@ -92,12 +92,16 @@ const SliderCom = () => {
                     {
                         categories.data ? (
                             categories.data.map((item, index) => {
-                                return (<div className='categoryItem' key={item.id}>
-
-                                    <img src={item.image} alt="1" />
-                                    <p>{item.title_ar}</p>
-
-                                </div>)
+                                return (
+                                    <div>
+                                        <Link to={`/category/${item.id}`} style={{ textDecoration: "none" }}>
+                                            <div className='categoryItem' key={item.id} style={{ textDecoration: "none" }}>
+                                                <img src={item.image} alt="1" />
+                                                <p style={{ textDecoration: "none" }} className='infoCategory'>{item.title_ar}</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                )
                             })
                         ) : (<Spinner animation="grow" />)
                     }
