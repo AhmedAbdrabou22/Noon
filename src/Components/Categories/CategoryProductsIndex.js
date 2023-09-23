@@ -22,10 +22,6 @@ const CategoryProductsIndex = () => {
         FetchProductCaategory()
     }, [])
 
-    if (data && data.data) {
-        console.log(data.data)
-        console.log(data.data.length)
-    }
     return (
         <div className='containerCustomized'>
             <div className='mt-5'>
@@ -50,7 +46,7 @@ const CategoryProductsIndex = () => {
                                         return (
                                             <div className='col-lg-2 col-md-4 col-sm-6'>
                                                 <div className='px-2 mb-3'>
-                                                    <ProductCard key={item.id} image={item.image} desc={item.desc} title={item.title} amount={item.amount} totalRate={item.total_rate} discount={item.discount} />
+                                                    <ProductCard key={item.id} id={item.id} image={item.image} desc={item.desc} title={item.title} amount={item.amount} totalRate={item.total_rate} discount={item.discount} />
                                                 </div>
                                             </div>
                                         )
