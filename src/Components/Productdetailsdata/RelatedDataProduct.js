@@ -16,7 +16,7 @@ const RelatedDataProduct = ({place,rate,price,desc , title}) => {
                     <div className='rate d-flex justify-content-center align-baseline specialRate' style={{background: "rgb(56, 174, 4)", color: "white" }}>
                         {rate}  <FontAwesomeIcon icon={faStar} style={{ width: "10px", marginRight: "5px" }} />
                     </div>
-                    <div className='mt-4 d-flex justify-content-between align-items-baseline px-2'>
+                    <div className='mt-4 d-flex justify-content-between align-baseline px-2'>
                         <div><p>الان : <span style={{fontWeight:"900"}}>{price} جنيه</span> (يشمل الضريبه والقيمه المضافه)</p></div>
                         <div className='type'><p>اكسبرس</p></div>
                     </div>
