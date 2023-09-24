@@ -60,7 +60,7 @@ const SpecificProductDetails = () => {
     }
 
     return (
-        <div className='containerCustomized' style={{background:"white" , padding:"10px"}}>
+        <div className='containerCustomized' style={{background:"white" , padding:"px"}}>
             <Row className='py-5'>
                 <Col  xs="12" sm="12" md="12" lg="4">
                     <GalleryImageProduct imageOne={imageOne} imageTwo={imageTwo} imageThree={imageThee} imageFour={imageFour} />

@@ -8,7 +8,7 @@ const RelatedDataProduct = ({place,rate,price,desc , title}) => {
             <div className='py-2 relatedData' style={{ marginRight:"25px" }}>
                 <div>
                     {
-                        price >= 100 ? ( <p className='moreSales'>الاكثر مبيعاا</p>):( <p className='moreSales'>الاقل  مبيعاا</p>)
+                        price >= 100 ? ( <p className='moreSales'>الاكثر مبيعاا</p>):( <p className='moreSales'>الاقل /* مبيعاا</p>)
                     }
                     <p>{title}</p>
                     <p style={{ color: "rgb(64, 69, 83)", fontSize: "1.6rem", fontWeight: "600" }}>{place}</p>
