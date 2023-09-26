@@ -352,15 +352,15 @@ body {
     /**Related Data Style */
     .relatedData{
         width:100%;
-        margin: 100px;
-        padding: 0 15px;
+        margin: 100px auto;
+        padding: 0 0 0 40px;
     }
     .moreSales{
         background-color: rgb(64, 69, 83);
         text-align: center;
         color:white;
         font-weight: 800;
-        width:100%;
+        width:20%;
         border-radius: 20px;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
