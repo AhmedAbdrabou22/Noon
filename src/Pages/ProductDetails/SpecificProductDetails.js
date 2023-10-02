@@ -4,6 +4,7 @@ import GalleryImageProduct from '../../Components/Productdetailsdata/GalleryImag
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Col, Container, Row } from 'react-bootstrap'
+import InfoAboutBuyer from '../../Components/Productdetailsdata/InfoAboutBuyer'
 const SpecificProductDetails = () => {
     const params = useParams();
     const [dataId, setData] = useState([]);
@@ -25,18 +26,21 @@ const SpecificProductDetails = () => {
     let total_rate = ""
     let place = "";
     let price = "";
-    let duration = "";
+    // let duration = "";
     let imageOne = null
     let imageTwo = null
     let imageThee = null
     let imageFour = null
+    let user = {}
+    let totalRate = 0;
     if (dataId.data) {
         text = dataId.data.title
         description = dataId.data.desc
         total_rate = dataId.data.total_rate
         price = dataId.data.price
         place = dataId.data.city
-
+        user = dataId.data.user
+        totalRate = dataId.data.total_rate;
 
         // console.log(dataId.data.duration);
 
@@ -65,8 +69,11 @@ const SpecificProductDetails = () => {
                 <Col  xs="12" sm="12" md="12" lg="4">
                     <GalleryImageProduct imageOne={imageOne} imageTwo={imageTwo} imageThree={imageThee} imageFour={imageFour} />
                 </Col>
-                <Col xs="12" sm="12" md="12" lg="8">
+                <Col xs="12" sm="12" md="12" lg="5">
                     <div><RelatedDataProduct title={text} desc={description} price={price} rate={total_rate} place={place}  /></div>
+                </Col>
+                <Col xs="12" sm="12" md="12" lg="3">
+                    <div><InfoAboutBuyer user={user} rate={totalRate}/></div>
                 </Col>
             </Row>
         </div>
