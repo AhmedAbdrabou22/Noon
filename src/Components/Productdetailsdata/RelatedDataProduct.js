@@ -4,11 +4,14 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import emi from "../../Images/emi.svg"
 import value from "../../Images/valu-logo-v4.svg"
 import noon from "../../Images/noon.avif"
+import { useParams } from 'react-router-dom'
 const RelatedDataProduct = ({ place, rate, price, desc, title }) => {
     const d1 = {
         border:"1px solid #40b8b3",
         borderRadius:"10px"
     }
+    const params = useParams();
+    console.log(params.id);
     return (
         <div>
             <div className='relatedData' style={{ marginRight: "25px" }}>
@@ -28,7 +31,7 @@ const RelatedDataProduct = ({ place, rate, price, desc, title }) => {
                     </div>
                     <div className='d-flex justify-content-center align-baseline mt-2 py-3' style={{ borderRadius: "4px", background: "rgb(252, 251, 245)" }}>
                         <div><img src={emi} alt="images" /></div>
-                        <div><p>دفعات شهرية تبدأ من جنيه 723. <a href='*'>عرض المزيد للتفاصيل</a></p></div>
+                        <div><p>دفعات شهرية تبدأ من جنيه 723. <a href={`${params.id}`}>عرض المزيد للتفاصيل</a></p></div>
                     </div>
                     <div className='mt-5 py-3 px-2 d-flex justify-content-center align-items-center' style={d1}>
                         <div className='w-25'> <img src={value} alt="value" className='w-75' /></div>

@@ -3,13 +3,14 @@ import logo from '../Images/noon-logo-ar.svg'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Signup from '../Pages/Auth/Signup';
 
 const NavBar = () => {
 
     return (
         <Navbar expand="lg" className="navBar">
             <Container fluid={true}>
-                <div className='d-flex justify-content-between align-items-center header' style={{width:"62%"}}>
+                <div className='d-flex justify-content-between align-items-center header' style={{ width: "62%" }}>
                     <div className='brand'>
                         <Navbar.Brand href="/">
                             <img src={logo} alt="logo" />
@@ -24,8 +25,7 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <Nav.Link className='link'>English</Nav.Link>
                         <Nav.Link className='link'>
-                            <span className='mx-2'>تسجيل الدخول</span>
-                            <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" />
+                            <Signup />
                         </Nav.Link>
                         <Nav.Link className='link'>
                             <span className='mx-2'>المفضله</span>

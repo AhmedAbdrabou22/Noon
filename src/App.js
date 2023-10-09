@@ -7,8 +7,8 @@ import SpecificProductDetails from "./Pages/ProductDetails/SpecificProductDetail
 function App() {
   return (
     <div className="App">
-        <NavBar/>
         <BrowserRouter>
+        <NavBar/>
           <Routes>
             <Route index element={<HomePage/>}/>
             <Route path="/category/:id" element={<CategoryPage/>}/>
