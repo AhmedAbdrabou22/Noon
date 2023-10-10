@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createNewUsers } from '../../redux/actions/Authaction'
 import { useDispatch, useSelector } from 'react-redux'
 const Register = () => {
@@ -35,11 +35,18 @@ const Register = () => {
     }
 
     const data = useSelector(state => state.UserReducer.createUSer)
-    if(data){
-        console.log(data);
-    }
 
-    return [name ,email , password , phone_number , onChangeName , onChangeEmail , onChangePassword , onChangePhone ,onSubmit]
+    useEffect(()=>{
+        if(loading === false){
+            if(data){
+                localStorage.setItem('token' , data.data.token)
+                localStorage.setItem('user' , JSON.stringify(data.data.user))
+            }
+        }
+    } , [loading])
+
+
+    return [name ,email , password , phone_number,loading , onChangeName , onChangeEmail , onChangePassword , onChangePhone ,onSubmit]
 
 }
 

@@ -6,7 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Signup from '../Pages/Auth/Signup';
 
 const NavBar = () => {
-
     return (
         <Navbar expand="lg" className="navBar">
             <Container fluid={true}>
