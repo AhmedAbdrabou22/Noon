@@ -19,15 +19,16 @@ const Signup = () => {
     if (localStorage.getItem('user')) {
         userData = JSON.parse(localStorage.getItem("user"));
     }
-
-    console.log(userData.name);
     return (
         <div>
             <div className='registerCover'>
                 {
-                    userData ? (
+                    userData.name ? (
                         <div>
-                            <span className='mx-2'>{userData.name}</span>
+                            <select>
+                                <option><span className='mx-2' onClick={handleShow}>{userData.name}</span></option>
+                                <option><span className='mx-2'>تسجيل الخروج</span></option>
+                            </select>
                             <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" />
                         </div>
                     ) : (

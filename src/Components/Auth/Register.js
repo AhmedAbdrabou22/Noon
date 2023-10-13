@@ -25,6 +25,7 @@ const Register = () => {
 
     const onSubmit = async () => {
         setLoading(true)
+        
             await dispatch(createNewUsers({
                 name,
                 email,

@@ -10,6 +10,14 @@ body {
     overflow-x: hidden !important;
     background: #f7f7fa !important;
 }
+select{
+    background-color: transparent !important;
+}
+select , select option{
+    border: none;
+    outline: none;
+    background-color:white ;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
