@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Register from '../../Components/Auth/Register';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 const Signup = () => {
     const [name, email, password, phone_number, loading, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
     const [show, setShow] = useState(false);
@@ -25,11 +27,17 @@ const Signup = () => {
                 {
                     userData.name ? (
                         <div>
-                            <select>
-                                <option><span className='mx-2' onClick={handleShow}>{userData.name}</span></option>
-                                <option><span className='mx-2'>تسجيل الخروج</span></option>
-                            </select>
-                            <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" />
+                            <Dropdown>
+                                <Dropdown.Toggle style={{background:"transparent"  , border:"none", color:"black"}} id="dropdown-basic">
+                                    {userData.name}
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href="#/action-1">الصفحة الشخصيه</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-1">تسجيل الخروج</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            {/* <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" /> */}
                         </div>
                     ) : (
                         <div>
