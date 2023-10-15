@@ -7,7 +7,7 @@ import Login from './Login';
 import Spinner from 'react-bootstrap/Spinner';
 
 const Signup = () => {
-    const [name, email, password, phone_number, loading,load, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
+    const [name, email, password, phone_number, loading, load, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
     const [show, setShow] = useState(false);
     const [spinnerscroll, setSpineer] = useState(false);
 
@@ -26,15 +26,20 @@ const Signup = () => {
         userData = JSON.parse(localStorage.getItem("user"));
     }
 
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setSpineer(false)
+        }
+    }, [load])
     const logOut = () => {
         localStorage.removeItem('user')
         window.location.href = "/"
     }
-    useEffect(()=>{
-        if(load !== false){
+    useEffect(() => {
+        if (load !== false) {
             setSpineer(true)
         }
-    } , [load])
+    }, [load])
     return (
         <div>
             <div className='registerCover'>
@@ -103,10 +108,12 @@ const Signup = () => {
                             </div>
                             {
                                 spinnerscroll ? (
-                                    <Spinner animation="border" role="status">
-                                    <span className="visually-hidden">Loading...</span>
-                                </Spinner>
-                                ):null
+                                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <Spinner animation="border" role="status">
+                                            <span className="visually-hidden">Loading...</span>
+                                        </Spinner>
+                                    </div>
+                                ) : null
                             }
                         </form>
                     </Modal.Body>
