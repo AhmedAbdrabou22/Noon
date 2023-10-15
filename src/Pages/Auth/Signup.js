@@ -3,12 +3,13 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Register from '../../Components/Auth/Register';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Login from './Login';
 
 const Signup = () => {
     const [name, email, password, phone_number, loading, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () =>setShow(false)
     const handleShow = () => setShow(true);
     useEffect(() => {
         if (loading === false) {
@@ -55,7 +56,7 @@ const Signup = () => {
                     <Modal.Header closeButton></Modal.Header>
                     <Modal.Body className='text-center'>
                         <h2 style={{ fontWeight: "bolder" }}>انشاء حساب</h2>
-                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a style={{ textDecoration: "none" }} href="*">تسجيل الدخول</a></p>
+                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a style={{ textDecoration: "none" }}  href="*"><Login/></a></p>
                         <form style={{ textAlign: "right" }} className='form'>
                             <div>
                                 <label>الاسم</label>
