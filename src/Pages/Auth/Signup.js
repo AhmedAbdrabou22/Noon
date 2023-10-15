@@ -21,6 +21,11 @@ const Signup = () => {
     if (localStorage.getItem('user')) {
         userData = JSON.parse(localStorage.getItem("user"));
     }
+
+    const logOut = () => {
+        localStorage.removeItem('user')
+        window.location.href = "/"
+    }
     return (
         <div>
             <div className='registerCover'>
@@ -33,8 +38,8 @@ const Signup = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#/action-1">الصفحة الشخصيه</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-1">تسجيل الخروج</Dropdown.Item>
+                                    <Dropdown.Item>الصفحة الشخصيه</Dropdown.Item>
+                                    <Dropdown.Item onClick={logOut}>تسجيل الخروج</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                             {/* <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" /> */}
