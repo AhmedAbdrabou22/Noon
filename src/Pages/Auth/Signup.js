@@ -4,17 +4,20 @@ import Modal from 'react-bootstrap/Modal';
 import Register from '../../Components/Auth/Register';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Login from './Login';
+import Spinner from 'react-bootstrap/Spinner';
 
 const Signup = () => {
-    const [name, email, password, phone_number, loading, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
+    const [name, email, password, phone_number, loading,load, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
     const [show, setShow] = useState(false);
+    const [spinnerscroll, setSpineer] = useState(false);
 
-    const handleClose = () =>setShow(false)
+    const handleClose = () => setShow(false)
     const handleShow = () => setShow(true);
     useEffect(() => {
         if (loading === false) {
             if (localStorage.getItem('token')) {
                 setShow(false)
+                setSpineer(false)
             }
         }
     }, [loading])
@@ -27,14 +30,19 @@ const Signup = () => {
         localStorage.removeItem('user')
         window.location.href = "/"
     }
+    useEffect(()=>{
+        if(load !== false){
+            setSpineer(true)
+        }
+    } , [load])
     return (
         <div>
             <div className='registerCover'>
                 {
                     userData.name ? (
                         <div>
-                            <Dropdown>
-                                <Dropdown.Toggle style={{background:"transparent"  , border:"none", color:"black"}} id="dropdown-basic">
+                            <Dropdown style={{ marginTop: "-3px" }}>
+                                <Dropdown.Toggle style={{ background: "transparent", color: "rgba(0,0,0,0.65)", border: "none" }} id="dropdown-basic">
                                     {userData.name}
                                 </Dropdown.Toggle>
 
@@ -47,7 +55,7 @@ const Signup = () => {
                         </div>
                     ) : (
                         <div>
-                            <span className='mx-2' onClick={handleShow}>تسجيل الدخول</span>
+                            <span className='mx-2' style={{ color: "rgba(0,0,0,0.65)" }} onClick={handleShow}>تسجيل الدخول</span>
                             <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" />
                         </div>
                     )
@@ -56,7 +64,7 @@ const Signup = () => {
                     <Modal.Header closeButton></Modal.Header>
                     <Modal.Body className='text-center'>
                         <h2 style={{ fontWeight: "bolder" }}>انشاء حساب</h2>
-                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a style={{ textDecoration: "none" }}  href="*"><Login/></a></p>
+                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a style={{ textDecoration: "none" }} href="*"><Login /></a></p>
                         <form style={{ textAlign: "right" }} className='form'>
                             <div>
                                 <label>الاسم</label>
@@ -93,6 +101,13 @@ const Signup = () => {
                             <div className='mt-3 text-center'>
                                 <button className='btn' style={{ color: "rgb(56, 102, 223)", fontWeight: "bold", border: "none", outline: "none" }} onClick={onSubmit}>انشاء حساب</button>
                             </div>
+                            {
+                                spinnerscroll ? (
+                                    <Spinner animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>
+                                ):null
+                            }
                         </form>
                     </Modal.Body>
                 </Modal>

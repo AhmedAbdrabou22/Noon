@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 const Register = () => {
     const dispatch = useDispatch();
 
+    const [load , setLoad] = useState(false);
+
     const [name , setName] = useState("")
     const [email , setEmail] = useState("")
     const [password , setPassword] = useState("")
@@ -24,14 +26,16 @@ const Register = () => {
     }
 
     const onSubmit = async () => {
+        setLoad(true)
         setLoading(true)
-        
+            console.log("loading...............");
             await dispatch(createNewUsers({
                 name,
                 email,
                 password,
                 phone_number,
             }))
+            
         setLoading(false)
     }
 
@@ -47,7 +51,7 @@ const Register = () => {
     } , [loading])
 
 
-    return [name ,email , password , phone_number,loading , onChangeName , onChangeEmail , onChangePassword , onChangePhone ,onSubmit]
+    return [name ,email , password , phone_number,loading ,load, onChangeName , onChangeEmail , onChangePassword , onChangePhone ,onSubmit]
 
 }
 

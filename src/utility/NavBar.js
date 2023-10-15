@@ -23,7 +23,7 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link className='link'>English</Nav.Link>
-                        <Nav.Link className='link'>
+                        <Nav.Link className='link' style={{color:"inherit"}}>
                             <Signup />
                         </Nav.Link>
                         <Nav.Link className='link'>
