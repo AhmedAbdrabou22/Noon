@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Register from '../../Components/Auth/Register';
@@ -41,15 +41,12 @@ const Signup = () => {
             setSpineer(true)
         }
     }, [load])
-    // const [count , setCount] = useState(0);
-    // const increaseCount = ()=>{
-    //     setCount(count+1)
-    // }
-    // useEffect(()=>{
-    //     if(count >0){
-    //         setShow(false)
-    //     }
-    // } , [count])
+    
+    const x = useRef(null);
+    const addStyle= ()=>{
+        var signUpModal = document.querySelector('.signUpModal')
+        signUpModal.style.display="none"
+    }
     return (
         <div>
             <div className='registerCover'>
@@ -75,11 +72,11 @@ const Signup = () => {
                         </div>
                     )
                 }
-                <Modal show={show} onHide={handleClose} centered>
+                <Modal show={show} onHide={handleClose} centered ref={x} className='signUpModal'>
                     <Modal.Header closeButton></Modal.Header>
                     <Modal.Body className='text-center'>
                         <h2 style={{ fontWeight: "bolder" }}>انشاء حساب</h2>
-                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a  style={{ textDecoration: "none" }} href="*"><Login /></a></p>
+                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a onClick={addStyle}  style={{ textDecoration: "none" }} href="*"><Login /></a></p>
                         <form style={{ textAlign: "right" }} className='form'>
                             <div>
                                 <label>الاسم</label>
