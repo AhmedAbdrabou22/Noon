@@ -18,6 +18,7 @@ const Signup = () => {
             if (localStorage.getItem('token')) {
                 setShow(false)
                 setSpineer(false)
+                window.location.reload();
             }
         }
     }, [loading])
@@ -40,6 +41,15 @@ const Signup = () => {
             setSpineer(true)
         }
     }, [load])
+    // const [count , setCount] = useState(0);
+    // const increaseCount = ()=>{
+    //     setCount(count+1)
+    // }
+    // useEffect(()=>{
+    //     if(count >0){
+    //         setShow(false)
+    //     }
+    // } , [count])
     return (
         <div>
             <div className='registerCover'>
@@ -69,7 +79,7 @@ const Signup = () => {
                     <Modal.Header closeButton></Modal.Header>
                     <Modal.Body className='text-center'>
                         <h2 style={{ fontWeight: "bolder" }}>انشاء حساب</h2>
-                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a style={{ textDecoration: "none" }} href="*"><Login /></a></p>
+                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a  style={{ textDecoration: "none" }} href="*"><Login /></a></p>
                         <form style={{ textAlign: "right" }} className='form'>
                             <div>
                                 <label>الاسم</label>
@@ -104,7 +114,7 @@ const Signup = () => {
                                 />
                             </div>
                             <div className='mt-3 text-center'>
-                                <button className='btn' style={{ color: "rgb(56, 102, 223)", fontWeight: "bold", border: "none", outline: "none" }} onClick={onSubmit}>انشاء حساب</button>
+                            <button className='btn' style={{ color: "rgb(56, 102, 223)", fontWeight: "bold", border: "none", outline: "none" }} onClick={onSubmit}>انشاء حساب</button>
                             </div>
                             {
                                 spinnerscroll ? (

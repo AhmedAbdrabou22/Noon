@@ -28,7 +28,6 @@ const Register = () => {
     const onSubmit = async () => {
         setLoad(true)
         setLoading(true)
-            console.log("loading...............");
             await dispatch(createNewUsers({
                 name,
                 email,
