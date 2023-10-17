@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { createNewUsers } from '../../redux/actions/Authaction'
 import { useDispatch, useSelector } from 'react-redux'
+import { ErrorMsg, InfoMsg } from '../../utility/Toast'
 const Register = () => {
     const dispatch = useDispatch();
 
@@ -24,10 +25,22 @@ const Register = () => {
     const onChangePhone = (event) => {
         setPhone(event.target.value)
     }
+    const validation = ()=>{
+        if(name === ""){
+            return ErrorMsg("من فضلك ادخل الاسم")
+        }
+        if(email === ""){
+            return ErrorMsg("من فضلك ادخل الايميل")
+        }
+        if(password === "" || password.length < 5){
+            return ErrorMsg("كلمة السر ضعيفه ")
+        }
+    }
 
     const onSubmit = async () => {
         setLoad(true)
         setLoading(true)
+        validation()
             await dispatch(createNewUsers({
                 name,
                 email,

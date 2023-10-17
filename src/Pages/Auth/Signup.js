@@ -18,8 +18,10 @@ const Signup = () => {
             if (localStorage.getItem('token')) {
                 setShow(false)
                 setSpineer(false)
-                window.location.reload();
+                // window.location.reload();
             }
+        }else{
+            setSpineer(true)
         }
     }, [loading])
     let userData = {};
