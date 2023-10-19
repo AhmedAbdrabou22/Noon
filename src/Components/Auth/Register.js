@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { createNewUsers } from '../../redux/actions/Authaction'
 import { useDispatch, useSelector } from 'react-redux'
-import { ErrorMsg, InfoMsg } from '../../utility/Toast'
+import { ErrorMsg, InfoMsg, success } from '../../utility/Toast'
 const Register = () => {
     const dispatch = useDispatch();
 
@@ -32,7 +32,7 @@ const Register = () => {
         if(email === ""){
             return ErrorMsg("من فضلك ادخل الايميل")
         }
-        if(password === "" || password.length < 5){
+        if(password === ""){
             return ErrorMsg("كلمة السر ضعيفه ")
         }
     }
@@ -58,6 +58,7 @@ const Register = () => {
             if(data){
                 localStorage.setItem('token' , data.data.token)
                 localStorage.setItem('user' , JSON.stringify(data.data.user))
+                success("تم تسجيل الدخول بنجاح")
             }
         }
     } , [loading])
