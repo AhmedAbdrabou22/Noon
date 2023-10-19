@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../redux/actions/Authaction';
+import { ErrorMsg, success } from '../../utility/Toast';
 const Loginuser = () => {
     const dispatch = useDispatch();
     const [email , setEmail] = useState("")
@@ -29,6 +30,9 @@ const Loginuser = () => {
             if(dataLogin){
                 localStorage.setItem('token' , dataLogin.data.token)
                 localStorage.setItem('user' , JSON.stringify(dataLogin.data.user))
+                success("تم تسجيل الدخول بنجاح")
+            }else{
+                ErrorMsg('هناك خطا ماا')
             }
         }
     } , [loading])
