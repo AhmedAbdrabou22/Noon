@@ -42,6 +42,8 @@ const Signup = () => {
     useEffect(() => {
         if (load !== false) {
             setSpineer(true)
+        }else{
+            setSpineer(false)
         }
     }, [load])
     

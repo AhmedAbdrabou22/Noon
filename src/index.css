@@ -62,8 +62,11 @@ select , select option{
 }
 
 .search {
-    width: 95%;
+    width: 55%;
     margin-right: auto;
+}
+.navs{
+    width:90% !important;
 }
 
 .search input[type="search"] {
