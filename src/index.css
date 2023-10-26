@@ -10,13 +10,15 @@ body {
     overflow-x: hidden !important;
     background: #f7f7fa !important;
 }
-select{
+
+select {
     background-color: transparent !important;
 }
-select , select option{
+
+select, select option {
     border: none;
     outline: none;
-    background-color:white ;
+    background-color: white;
 }
 
 ::-webkit-scrollbar {
@@ -65,8 +67,9 @@ select , select option{
     width: 55%;
     margin-right: auto;
 }
-.navs{
-    width:90% !important;
+
+.navs {
+    width: 90% !important;
 }
 
 .search input[type="search"] {
@@ -276,24 +279,24 @@ select , select option{
 
 /**Style register */
 .modal-content {
-    background-image:url("https://f.nooncdn.com/s/app/com/noon/images/noon-logo-bg.svg");
+    background-image: url("https://f.nooncdn.com/s/app/com/noon/images/noon-logo-bg.svg");
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 400px;
-    border-radius:8px !important ;
-    -webkit-border-radius:8px !important ;
-    -moz-border-radius:8px !important ;
-    -ms-border-radius:8px !important ;
-    -o-border-radius:8px !important ;
+    border-radius: 8px !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    -ms-border-radius: 8px !important;
+    -o-border-radius: 8px !important;
     height: auto;
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50% , -50%);
-    -webkit-transform: translate(-50% , -50%);
-    -moz-transform: translate(-50% , -50%);
-    -ms-transform: translate(-50% , -50%);
-    -o-transform: translate(-50% , -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
 
@@ -313,9 +316,10 @@ select , select option{
     z-index: -1;
     /* يجب أن يكون أقل من z-index للعناصر الأخرى داخل Modal */
 }
-.form input{
+
+.form input {
     margin-top: 5px;
-    width:100%;
+    width: 100%;
     border: none;
     outline: none;
     border-bottom: 1px solid rgb(226, 229, 241);
@@ -323,15 +327,39 @@ select , select option{
     font-size: 16px;
     color: rgb(64, 69, 83);
 }
+
 /**Style register */
 
 /**Style Admin */
-.tabs a{
+.tabs a {
     color: black !important;
     margin-bottom: 15px;
 }
-/**Style Admin */
 
+/**Style Form Fields */
+.fields {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f7f7fa !important;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    outline: none;
+    border: none;
+    height: 50px;
+    padding-right: 15px;
+}
+
+#myTextarea {
+    width: 300px;
+    height: 150px;
+    resize: none;
+}
+.dashIt{
+    display: none;
+}
+/**Style Admin */
 
 @media(max-width:768px) {
     .header {
@@ -438,5 +466,18 @@ select , select option{
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
+    }
+    .fields{
+        width:100% !important;
+    }
+    .filed{
+        flex-direction: column;
+        width: 100% !important;
+    }
+    .dash{
+        display: none;
+    }
+    .dashIt{
+        display: block;
     }
 }
