@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import { Container } from "react-bootstrap"
 import Uploadproduct from './Uploadproduct';
+import Updatedetails from './Updatedetails';
 const Adminpagecomponent = () => {
     return (
         <div>
@@ -34,7 +35,7 @@ const Adminpagecomponent = () => {
                             <Col sm={9} style={{ background: "white", borderRadius: "10px" }} className='shadow'>
                                 <Tab.Content>
                                     <Tab.Pane eventKey="first"><Uploadproduct /></Tab.Pane>
-                                    <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
+                                    <Tab.Pane eventKey="second"><Updatedetails/></Tab.Pane>
                                     <Tab.Pane eventKey="third">third tab content</Tab.Pane>
                                     <Tab.Pane eventKey="fourth">fourth tab content</Tab.Pane>
                                     <Tab.Pane eventKey="fifth">fifth tab content</Tab.Pane>
