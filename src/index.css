@@ -325,9 +325,12 @@ select , select option{
 }
 /**Style register */
 
-/**Style option */
-
-/**Style option */
+/**Style Admin */
+.tabs a{
+    color: black !important;
+    margin-bottom: 15px;
+}
+/**Style Admin */
 
 
 @media(max-width:768px) {

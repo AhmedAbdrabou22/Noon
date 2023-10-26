@@ -8,6 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPage from "./Pages/Admin/AdminPage";
 function App() {
+  let user = {}
+  if((localStorage.getItem('user'))){
+    user = JSON.parse(localStorage.getItem('user'))
+  }
   return (
     <div className="App">
       <ToastContainer />
@@ -17,7 +21,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/category/:id" element={<CategoryPage />} />
           <Route path="/product/:id" element={<SpecificProductDetails />} />
-          <Route path="/admin" element={<AdminPage />} />
+          {
+            user.email === "aabdrabou819@gmail.com" ? (<Route path="/admin" element={<AdminPage />} />) :null
+          }
+          <Route path="*" element={<h2>Page Not Found</h2>} />
         </Routes>
       </BrowserRouter>
     </div>

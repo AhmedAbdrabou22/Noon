@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../redux/actions/Authaction';
 import { ErrorMsg, success } from '../../utility/Toast';
 const Loginuser = () => {
+    const [load , setLoad] = useState(false);
+
     const dispatch = useDispatch();
     const [email , setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -16,6 +18,7 @@ const Loginuser = () => {
     }
 
     const onSubmit =async () => {
+        setLoad(true)
         setLoading(true)
         await dispatch(loginUser({
             email,
@@ -37,7 +40,7 @@ const Loginuser = () => {
         }
     } , [loading])
 
-    return [email , password , loading  ,onChangeEmail , onChangePaswword ,onSubmit]
+    return [email , password , loading ,load  ,onChangeEmail , onChangePaswword ,onSubmit]
 }
 
 export default Loginuser
