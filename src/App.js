@@ -7,6 +7,7 @@ import SpecificProductDetails from "./Pages/ProductDetails/SpecificProductDetail
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPage from "./Pages/Admin/AdminPage";
+import MainUserProfile from "./Pages/UserPage/MainUserProfile";
 function App() {
   let user = {}
   if((localStorage.getItem('user'))){
@@ -23,6 +24,9 @@ function App() {
           <Route path="/product/:id" element={<SpecificProductDetails />} />
           {
             user.email === "aabdrabou819@gmail.com" ? (<Route path="/admin" element={<AdminPage />} />) :null
+          }
+          {
+            localStorage.getItem("user") ? (<Route path="/profile" element={<MainUserProfile/>}/>):null
           }
           <Route path="*" element={<h2>Page Not Found</h2>} />
         </Routes>

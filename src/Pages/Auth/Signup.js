@@ -6,6 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Login from './Login';
 import Spinner from 'react-bootstrap/Spinner';
 import { success } from '../../utility/Toast';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
     const [name, email, password, phone_number, loading, load, onChangeName, onChangeEmail, onChangePassword, onChangePhone, onSubmit] = Register();
@@ -21,7 +22,7 @@ const Signup = () => {
                 setSpineer(false)
                 // window.location.reload();
             }
-        }else{
+        } else {
             setSpineer(true)
         }
     }, [loading])
@@ -42,15 +43,15 @@ const Signup = () => {
     useEffect(() => {
         if (load !== false) {
             setSpineer(true)
-        }else{
+        } else {
             setSpineer(false)
         }
     }, [load])
-    
+
     const x = useRef(null);
-    const addStyle= ()=>{
+    const addStyle = () => {
         var signUpModal = document.querySelector('.signUpModal')
-        signUpModal.style.display="none"
+        signUpModal.style.display = "none"
     }
     return (
         <div>
@@ -64,11 +65,13 @@ const Signup = () => {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item>الصفحة الشخصيه</Dropdown.Item>
+                                    <Link to="/profile" style={{textDecoration:"none"}}>
+                                        <Dropdown.Item href='/profile'>الصفحة الشخصيه</Dropdown.Item>
+                                    </Link>
                                     <Dropdown.Item onClick={logOut}>تسجيل الخروج</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                            {/* <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" /> */}
+                            {/* <img src="https://f.nooncdn.com/s/app/com/noon/icons/user_thin.svg" alt="person" /> */} 
                         </div>
                     ) : (
                         <div>
@@ -81,7 +84,7 @@ const Signup = () => {
                     <Modal.Header closeButton></Modal.Header>
                     <Modal.Body className='text-center'>
                         <h2 style={{ fontWeight: "bolder" }}>انشاء حساب</h2>
-                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a onClick={addStyle}  style={{ textDecoration: "none" }} href="*"><Login /></a></p>
+                        <p className='mt-4'>هل لديك حساب بالفعل؟ <a onClick={addStyle} style={{ textDecoration: "none" }} href="*"><Login /></a></p>
                         <form style={{ textAlign: "right" }} className='form'>
                             <div>
                                 <label>الاسم</label>
@@ -116,7 +119,7 @@ const Signup = () => {
                                 />
                             </div>
                             <div className='mt-3 text-center'>
-                            <button className='btn' style={{ color: "rgb(56, 102, 223)", fontWeight: "bold", border: "none", outline: "none" }} onClick={onSubmit}>انشاء حساب</button>
+                                <button className='btn' style={{ color: "rgb(56, 102, 223)", fontWeight: "bold", border: "none", outline: "none" }} onClick={onSubmit}>انشاء حساب</button>
                             </div>
                             {
                                 spinnerscroll ? (

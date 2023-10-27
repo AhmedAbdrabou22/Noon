@@ -7,6 +7,10 @@ import { Container } from "react-bootstrap"
 import Uploadproduct from './Uploadproduct';
 import Updatedetails from './Updatedetails';
 const Adminpagecomponent = () => {
+    var user = {};
+    if(localStorage.getItem('user')){
+        user = JSON.parse(localStorage.getItem('user'));
+    }
     return (
         <div>
             <div className='dash'>
