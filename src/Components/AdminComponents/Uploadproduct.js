@@ -1,14 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ErrorMsg, success } from '../../utility/Toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCategory } from '../../redux/actions/GetAllCategoryAction';
+import { GetGovern } from '../../redux/actions/GetGovern';
+import baseUrl from '../../Api/baseUrl';
 
 const Uploadproduct = () => {
+    const [cityId, setCityId] = useState(0);
+    const [cityLive, setCityLive] = useState([]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getAllCategory())
+    }, [])
+    const categories = useSelector((state) => state.CategoryReducer.category);
+
+
+
+    const getAllGovern = async () => {
+        await dispatch(GetGovern())
+    }
+
+    useEffect(() => {
+        getAllGovern()
+    }, [])
+
+    const governments = useSelector((state) => state.GetGoverReducer.getGovern)
+
+
+
+    const FetchCities = async () => {
+        const cities = await baseUrl.get(`/api/v1/cities/${cityId}`)
+        setCityLive(cities)
+    }
+
+
+    useEffect(() => {
+        FetchCities();
+    }, [cityId])
+
     return (
         <div>
             <form className='text-center py-3 mx-auto'>
                 <div>
                     <select placeholder='تحديد نوع المنتج' className='w-50 fields'>
                         <option hidden>اختر التصنيف</option>
-                        <option>الكترونيات</option>
-                        <option>عقارات</option>
+                        {
+                            categories.data ? (
+                                categories.data.map((item) => {
+                                    return (
+                                        <option value={item.id}>{item.title_ar}</option>
+                                    )
+                                })
+                            ) : null
+                        }
                     </select>
                 </div>
                 <div className='d-flex mx-auto text-center w-50 justify-content-between'>
@@ -21,29 +65,31 @@ const Uploadproduct = () => {
                 </div>
                 <div className='d-flex w-50 mx-auto text-center justify-content-between mt-4 filed'>
                     <div>
-                        <select className='fields' style={{ width: "150%" }}>
-                            <option hidden>محافظات مصر</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
-                            <option>القاهره</option>
+                        <select className='fields' style={{ width: "150%" }} onChange={(e)=>setCityId(e.target.value)}>
+                            <option hidden>اختر المحافظه</option>
+                            {
+                                governments && governments.data ? (
+                                    governments.data.data.map((item) => {
+                                        return (
+                                            <option value={item.id}>{item.name}</option>
+                                        )
+                                    })
+                                ) : null
+                            }
                         </select>
                     </div>
                     <div>
-                        <select className='fields' style={{ width: "280%" , marginRight:"-176%" }}>
+                        <select className='fields' style={{ width: "100%"}}>
                             <option hidden>مدينه</option>
-                            <option>غزه</option>
-                            <option>غزه</option>
-                            <option>غزه</option>
-                            <option>غزه</option>
-                            <option>غزه</option>
-                            <option>غزه</option>
-                            <option>غزه</option>
+                            {
+                                cityLive.data ? (
+                                    cityLive.data.data.map((item) => {
+                                        return (
+                                            <option value={item.id}>{item.name}</option>
+                                        )
+                                    })
+                                ) : null
+                            }
                         </select>
                     </div>
                 </div>
