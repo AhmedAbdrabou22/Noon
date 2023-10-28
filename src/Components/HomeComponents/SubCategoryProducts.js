@@ -27,7 +27,7 @@ const SubCategoryProducts = () => {
                 <div className='row mt-4'>
                     {
                         subProduct && subProduct.data ? (
-                            subProduct.data.slice(1, 7).map((item) => {
+                            subProduct.data.map((item) => {
                                 return (
                                     <div className='col-lg-2 col-md-4 col-sm-6'>
                                         <div className='px-2 mb-3'>

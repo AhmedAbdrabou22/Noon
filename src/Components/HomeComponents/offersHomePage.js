@@ -25,7 +25,7 @@ const OffersHomePage = () => {
                     <div className='row'>
                         {
                             data && data.data ? (
-                                data.data.slice(1, 7).map((item) => {
+                                data.data.map((item) => {
                                     return (
                                         <div className='col-lg-2 col-md-4 col-sm-6'>
                                             <div className='px-2 mb-3'>

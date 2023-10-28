@@ -8,10 +8,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminPage from "./Pages/Admin/AdminPage";
 import MainUserProfile from "./Pages/UserPage/MainUserProfile";
+import AllProducts from "./Pages/AllProducts/AllProducts";
 function App() {
   let user = {}
   if((localStorage.getItem('user'))){
     user = JSON.parse(localStorage.getItem('user'))
+    user.is_verified = 1;
   }
   return (
     <div className="App">
@@ -28,6 +30,7 @@ function App() {
           {
             localStorage.getItem("user") ? (<Route path="/profile" element={<MainUserProfile/>}/>):null
           }
+          <Route path="/products" element={<AllProducts/>}/>
           <Route path="*" element={<h2>Page Not Found</h2>} />
         </Routes>
       </BrowserRouter>

@@ -23,7 +23,7 @@ const ContainerProducts = () => {
                     <div className='row'>
                         {
                             products && products.data ? (
-                                products.data.slice(1, 7).map((item) => {
+                                products.data.map((item) => {
                                     return (
                                         <div className='col-lg-2 col-md-4 col-sm-6'>
                                             <div className='px-2 mb-3'>

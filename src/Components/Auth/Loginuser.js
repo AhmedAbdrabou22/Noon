@@ -26,7 +26,7 @@ const Loginuser = () => {
         }))
         setLoading(false)
     }
-
+    var user = {};
     const dataLogin = useSelector(state => state.UserReducer.loginUSer);
     useEffect(()=>{
         if(loading === false){

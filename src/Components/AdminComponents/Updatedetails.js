@@ -32,6 +32,9 @@ const Updatedetails = () => {
     useEffect(() => {
         if (loading === false) {
             success("تم تحديث البيانات")
+            setAddress("");
+            setCityId(0)
+            SetidcityDisabeled(0)
         }
     }, [loading])
 
@@ -71,13 +74,14 @@ const Updatedetails = () => {
                 <div>
                     <label>العنوان</label>
                     <br />
-                    <input type='text' id="address" name="address" className='fields w-75 mt-4 mb-3' onChange={(e) => setAddress(e.target.value)} />
+                    <input type='text' id="address" name="address" value={address} className='fields w-75 mt-4 mb-3' onChange={(e) => setAddress(e.target.value)} />
                 </div>
                 <div>
                     <label>المحافظه</label>
                     <br />
                     <select className='fields w-75 mt-4' onChange={(e)=>setCityId(e.target.value)}>
-                        <option hidden>اختر المحافظه</option>
+                        <option hidden value="0">اختر المحافظه</option>
+                        <option  value={0}>اختر المحافظه</option>
                         {
                             governments && governments.data ? (
                                 governments.data.data.map((item)=>{
