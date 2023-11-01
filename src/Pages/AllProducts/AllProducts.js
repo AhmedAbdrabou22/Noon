@@ -20,7 +20,6 @@ const AllProducts = () => {
     var products3 = useSelector((state) => state.ProductReducer.data)
     var allProductsData = [];
     if (products.data && products2.data && products3.data) {
-        // setallProducts(products.data.concat(products2.data, products3.data))
         allProductsData = products.data.concat(products2.data, products3.data)
     }
 

@@ -1,6 +1,6 @@
 import baseUrl from "../../Api/baseUrl"
 
-const FormData = (formatData) => {
+const StoreProduct = (formatData) => {
     return async (dispatch) => {
         const config = {
             headers: {
@@ -17,4 +17,4 @@ const FormData = (formatData) => {
     }
 }
 
-export default FormData
+export default StoreProduct

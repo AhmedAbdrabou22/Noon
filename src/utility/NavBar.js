@@ -8,7 +8,7 @@ import Signup from '../Pages/Auth/Signup';
 const NavBar = () => {
     let user = {};
     if (localStorage.getItem('user')) {
-        console.log(JSON.parse(localStorage.getItem('user')));
+        // console.log(JSON.parse(localStorage.getItem('user')));
         user = JSON.parse(localStorage.getItem('user'));
     }
     return (
