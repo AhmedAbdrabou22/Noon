@@ -14,6 +14,7 @@ const createNewUsers = (data) => {
         }
     }
 }
+
 const loginUser = (data) => {
     return async (dispatch) => {
         const config = {

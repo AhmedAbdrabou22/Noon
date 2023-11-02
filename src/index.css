@@ -356,9 +356,9 @@ select, select option {
     height: 150px;
     resize: none;
 }
-.dashIt{
+/* .dashIt{
     display: none;
-}
+} */
 /**Style Admin */
 
 @media(max-width:768px) {
