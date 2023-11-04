@@ -359,9 +359,18 @@ select, select option {
 /* .dashIt{
     display: none;
 } */
+.descData{
+    width:50%;
+}
+.descDataOther{
+    width:100%;
+}
 /**Style Admin */
 
 @media(max-width:768px) {
+    .descData{
+        width:100%;
+    }
     .header {
         width: 85% !important;
         display: flex;

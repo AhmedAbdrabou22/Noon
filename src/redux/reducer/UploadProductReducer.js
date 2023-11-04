@@ -1,5 +1,6 @@
 const initial = {
     postProducts: [],
+    deleteProduct:[],
     loading: true,
 }
 
@@ -9,6 +10,12 @@ const UploadProductRedcuer = (state = initial, action) => {
             return {
                 ...state,
                 postProducts: action.payload,
+                loading: false
+            }
+        case "deleteproduct":
+            return {
+                ...state,
+                deleteProduct: action.payload,
                 loading: false
             }
         case "getErrors":

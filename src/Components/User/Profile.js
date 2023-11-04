@@ -11,11 +11,11 @@ import GetmyproductsComponent from '../AdminComponents/Getmyproducts';
 const Profile = () => {
     return (
         <div>
-            <div className='dash'>
+            <div className=''>
                 <Container className='mt-3'>
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                         <Row className='justify-content-between'>
-                            <Col sm={2} style={{ borderRadius: "10px", height: "85vh", background: "white" }} className='shadow'>
+                            <Col sm={3} style={{ borderRadius: "10px", height: "85vh", background: "white" }} className='shadow'>
                                 <Nav variant="pills" className="flex-column" style={{ padding: "10px", fontSize: "18px" }}>
                                     <Nav.Item className='tabs'>
                                         <Nav.Link eventKey="oneTh">رفع المنتج</Nav.Link>
@@ -34,7 +34,7 @@ const Profile = () => {
                                     </Nav.Item>
                                 </Nav>
                             </Col>
-                            <Col sm={9} style={{ background: "white", borderRadius: "10px" }} className='shadow'>
+                            <Col sm={8} style={{ background: "white", borderRadius: "10px" }} className='shadow'>
                                 <Tab.Content>
                                 <Tab.Pane eventKey="oneTh"><Uploadproduct/></Tab.Pane>
                                     <Tab.Pane eventKey="first"><Updatedetails /></Tab.Pane>

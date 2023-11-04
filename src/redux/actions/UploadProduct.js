@@ -16,5 +16,21 @@ const StoreProduct = (formatData) => {
         }
     }
 }
+const DeleteProduct = (id) => {
+    return async (dispatch) => {
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        }
+        try {
+            let res = await baseUrl.delete(`/api/v1/products/${id}` , config)
+            dispatch({type:"deleteproduct" , payload:res})
+        } catch (e){
+            dispatch({type:"deleteproduct" , payload:e.res})
+        }
+    }
+}
 
-export default StoreProduct
+export {DeleteProduct , StoreProduct}

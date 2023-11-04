@@ -5,7 +5,7 @@ import { getAllCategory } from '../../redux/actions/GetAllCategoryAction';
 import { GetGovern } from '../../redux/actions/GetGovern';
 import baseUrl from '../../Api/baseUrl';
 import imageDefault from "../../Images/logoLepgo.png"
-import StoreProduct from '../../redux/actions/UploadProduct';
+import {StoreProduct} from '../../redux/actions/UploadProduct';
 import axios from 'axios';
 
 const Uploadproduct = () => {
@@ -150,9 +150,9 @@ const Uploadproduct = () => {
                         }
                     </select>
                 </div>
-                <div className='w-50 mx-auto'>
+                <div className='descData mx-auto'>
                     <div>
-                        <input type='text' placeholder='اسم المنتج' value={title} onChange={(e) => setTitle(e.target.value)} className='fields w-100 mt-4' />
+                        <input type='text' placeholder='اسم المنتج' value={title} onChange={(e) => setTitle(e.target.value)} className='fields descDataOther mt-4' />
                     </div>
                 </div>
                 <div className='w-50 mx-auto'>
@@ -179,7 +179,7 @@ const Uploadproduct = () => {
 
                 <div className='d-flex w-50 mx-auto text-center justify-content-between mt-4 filed'>
                     <div>
-                        <select className='fields' style={{ width: "150%" }} onChange={onSelectLocation}>
+                        <select className='fields mt-2' style={{ width: "150%" }} onChange={onSelectLocation}>
                             <option hidden>اختر المحافظه</option>
                             {
                                 governments && governments.data ? (
@@ -193,7 +193,7 @@ const Uploadproduct = () => {
                         </select>
                     </div>
                     <div>
-                        <select className='fields' style={{ width: "100%" }} name="cityId"
+                        <select className='fields mt-2' style={{ width: "100%" }} name="cityId"
                             onChange={onSelectCity}>
                             <option hidden>مدينه</option>
                             {
@@ -208,10 +208,10 @@ const Uploadproduct = () => {
                         </select>
                     </div>
                 </div>
-                <div style={{ textAlign: "right" }} className='w-50 mx-auto'>
+                <div style={{ textAlign: "right" }} className='descData mx-auto'>
                     <textarea placeholder='وصف المنتج' className='fields mt-4 w-100' value={description} onChange={(e) => setDescription(e.target.value)} cols="40" id="myTextarea" rows="50"></textarea>
                 </div>
-                <div style={{ textAlign: "right" }} className='w-50 mx-auto'>
+                <div style={{ textAlign: "right" }} className='descData mx-auto'>
                     <textarea placeholder='شروط حجز المنتج' value={conditions} onChange={(e) => setConditions(e.target.value)} className='fields mt-4 w-100' cols="40" id="myTextarea" rows="50"></textarea>
                 </div>
                 <button className='btn text-light bg-primary mt-2' onClick={handleSubmitProduct}>اضف المنتج الان</button>
