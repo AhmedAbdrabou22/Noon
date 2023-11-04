@@ -18,17 +18,20 @@ const GetmyproductsComponent = () => {
             <div className='row mt-2 py-2'>
                 {
                     myProducts && myProducts.products ? (
-                        myProducts.products.map((item) => {
-                            return (
-                                <div className='col-lg-3 col-md-4 col-sm-6'>
-                                    <div className='px-2 mb-3'>
-                                        <ProductCardDelete key={item.id} image={item.image} desc={item.desc} title={item.title} amount={item.amount} id={item.id} totalRate={item.total_rate} discount={item.discount} />
+                        myProducts.products.length !== 0 ? (
+                            myProducts.products.map((item) => {
+                                return (
+                                    <div className='col-lg-3 col-md-4 col-sm-6'>
+                                        <div className='px-2 mb-3'>
+                                            <ProductCardDelete key={item.id} image={item.image} desc={item.desc} title={item.title} amount={item.amount} id={item.id} totalRate={item.total_rate} discount={item.discount} />
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })
+                                )
+                            })
+                        ):(<p className='fs-1 text-center'>لاتوجد بيانات  مرفوعه حاليا  </p>)
                     ) : (<Spinner animation="grow" />)
                 }
+        
             </div>
         </div>
     )
