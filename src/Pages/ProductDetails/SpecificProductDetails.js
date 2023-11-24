@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Col, Container, Row } from 'react-bootstrap'
 import InfoAboutBuyer from '../../Components/Productdetailsdata/InfoAboutBuyer'
+import ProductCard from '../../Components/Cards/ProductCard'
 const SpecificProductDetails = () => {
     const params = useParams();
     const [dataId, setData] = useState([]);
@@ -32,6 +33,8 @@ const SpecificProductDetails = () => {
     let imageThee = null
     let imageFour = null
     let user = {}
+    let reviews = [];
+    let relatedProducts = [];
     let totalRate = 0;
     if (dataId.data) {
         text = dataId.data.title
@@ -41,6 +44,8 @@ const SpecificProductDetails = () => {
         place = dataId.data.city
         user = dataId.data.user
         totalRate = dataId.data.total_rate;
+        reviews = dataId.data.reviews;
+        relatedProducts = dataId.data.related_products;
 
         // console.log(dataId.data.duration);
 
@@ -59,23 +64,36 @@ const SpecificProductDetails = () => {
         }
     }
 
-    if(dataId && dataId.data){
+    if (dataId && dataId.data) {
         console.log(dataId.data);
     }
 
     return (
-        <div className='containerCustomized' style={{background:"white" , padding:"px"}}>
+        <div className='containerCustomized' style={{ background: "white", padding: "px" }}>
             <Row className='py-5'>
-                <Col  xs="12" sm="12" md="12" lg="4">
+                <Col xs="12" sm="12" md="12" lg="4">
                     <GalleryImageProduct imageOne={imageOne} imageTwo={imageTwo} imageThree={imageThee} imageFour={imageFour} />
                 </Col>
                 <Col xs="12" sm="12" md="12" lg="5">
-                    <div><RelatedDataProduct title={text} desc={description} price={price} rate={total_rate} place={place}  /></div>
+                    <div><RelatedDataProduct title={text} desc={description} price={price} rate={total_rate} place={place} /></div>
                 </Col>
                 <Col xs="12" sm="12" md="12" lg="3">
-                    <div><InfoAboutBuyer user={user} rate={totalRate}/></div>
+                    <div><InfoAboutBuyer user={user} rate={totalRate} reviews={reviews} /></div>
                 </Col>
             </Row>
+            <div className='row'>
+            {
+                relatedProducts.map((relatedProduct) => {
+                    return (
+                        <div className='col-lg-2 col-md-4 col-sm-6'>
+                            <div className='px-2 mb-3'>
+                                <ProductCard key={relatedProduct.id} image={relatedProduct.image} desc={relatedProduct.desc} title={relatedProduct.title} amount={relatedProduct.amount} id={relatedProduct.id} totalRate={relatedProduct.total_rate} discount={relatedProduct.discount} />
+                            </div>
+                        </div>
+                    )
+                })
+            }
+            </div>
         </div>
     )
 }

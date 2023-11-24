@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 const InfoAboutBuyer = (props) => {
     console.log(props.rate);
+    console.log(props.reviews);
     return (
         <div>
             <div className='d-flex  align-items-center' style={{ borderBottom: "1px solid #f7f7fa", padding: "10px" }}>
@@ -41,6 +42,23 @@ const InfoAboutBuyer = (props) => {
                             {props.rate}  <FontAwesomeIcon icon={faStar} style={{ width: "10px", marginRight: "5px" }} />
                         </div>
                     )
+                }
+            </div>
+            <hr />
+            <div>
+                <p>كل التعليقات الخاصه بالمنتج</p>
+                {
+                    props.reviews.map((comment)=>{
+                        return(
+                            <div key={comment.id} className='reviews mt-3'>
+                                <div className=''>
+                                    <img src={comment.user.image} alt="data" style={{width:"50px" , height:"50px" , borderRadius:"50%" , verticalAlign:"middle"}}/>
+                                    <span className='mx-2'>{comment.user.name}</span>
+                                </div>
+                                <p className='mt-3'>{comment.comment}</p>
+                            </div>
+                        )
+                    })
                 }
             </div>
         </div>

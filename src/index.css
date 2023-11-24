@@ -367,6 +367,20 @@ select, select option {
 }
 /**Style Admin */
 
+/**Style Info About Byer */
+.reviews{
+    width:90%;
+    background-color: #f7f7fa;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding:20px;
+    margin: auto;
+}
+/**Style Info About Byer */
+
 @media(max-width:768px) {
     .descData{
         width:100%;
