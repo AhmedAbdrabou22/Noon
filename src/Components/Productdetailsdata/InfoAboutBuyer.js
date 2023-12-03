@@ -9,19 +9,22 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { DelteComment } from '../../redux/actions/Comment'
+import {success} from '../../utility/Toast'
 const InfoAboutBuyer = (props) => {
     let userLogin = JSON.parse(localStorage.getItem('user'));
-    console.log(userLogin.id);
     const [rateData, setRateData] = useState(0);
+    const [commentId, setCommentId] = useState(0);
 
 
     const params = useParams();
     const dispatch = useDispatch();
 
-    const deleteIt = async ()=>{
-        await dispatch(DelteComment(params.id))
-    }
+    // const deleteIt = async (e) => {
+    //     await dispatch(DelteComment(commentId))
+    //     // console.log(e.target.value);
+    // }
 
+    console.log(commentId);
     return (
         <div>
             <div className='d-flex  align-items-center' style={{ borderBottom: "1px solid #f7f7fa", padding: "10px" }}>
@@ -74,7 +77,13 @@ const InfoAboutBuyer = (props) => {
                                         comment.user.id === userLogin.id ? (
 
                                             <div>
-                                                <button className='btn mt-2' onClick={deleteIt} style={{color:"red"}}><FontAwesomeIcon icon={faTrash} /></button>
+                                                <button className='btn mt-2' onClick={async () => {
+                                                    await dispatch(DelteComment(comment.id))
+                                                    success('تم حذف تعليقك ')
+                                                    setTimeout(()=>{
+                                                        window.location.reload(`/product/${params.id}`)
+                                                    } , 2000)
+                                                }} style={{ color: "red" }}><FontAwesomeIcon icon={faTrash} /></button>
                                             </div>
 
                                         ) : null

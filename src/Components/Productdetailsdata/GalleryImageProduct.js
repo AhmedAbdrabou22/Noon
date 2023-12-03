@@ -5,7 +5,7 @@ import Rating from 'react-rating-stars-component';
 import { useDispatch, useSelector } from "react-redux"
 import {PostCommenttoProduct} from '../../redux/actions/Comment';
 import { useParams } from 'react-router-dom'
-import {success} from '../../utility/Toast'
+import {ErrorMsg, success} from '../../utility/Toast'
 const GalleryImageProduct = ({ imageOne, imageTwo, imageThree, imageFour }) => {
     let user = {};
     if (localStorage.getItem('user')) {
@@ -50,11 +50,18 @@ const GalleryImageProduct = ({ imageOne, imageTwo, imageThree, imageFour }) => {
     const [commentData , setCommentData] = useState("")
     const [loading, setloading] = useState(true)
 
-    console.log(rateData);
-    console.log(commentData);
-    console.log(params.id);
+    const validation = ()=>{
+        if(rateData === 0){
+            return ErrorMsg('من فضلك ادخل تقييمك لهذا المنتج')
+        }
+        if(commentData === ""){
+            return ErrorMsg('من فضلك ادخل تعليقك علي هذا المنتج')
+        }
+    }
+
     
     const postCommentData = async(e)=>{
+        validation();
         setloading(true)
         await dispatch(PostCommenttoProduct({
             rate:rateData,
@@ -62,16 +69,15 @@ const GalleryImageProduct = ({ imageOne, imageTwo, imageThree, imageFour }) => {
             product_id:params.id
         }))
         setloading(false)
+    }
+
+    const comments = useSelector(state=>state.CommentReducer.posts)
+    if(comments !== "Error through Loadin Data" && loading === false){
         success("تم رفع تعليقك")
         setTimeout(()=>{
             window.location.reload(`/product/${params.id}`)
         } , 500)
     }
-
-    const comments = useSelector(state=>state.CommentReducer.posts)
-    // if(comments){
-    //     console.log(comments);
-    // }
     return (
         <div>
             <div className='product-gallary-card' style={{ maxWidth: "100%", objectFit: "cover", maxHeight: "350px" }}>

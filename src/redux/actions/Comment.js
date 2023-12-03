@@ -11,7 +11,7 @@ const PostCommenttoProduct = (data) => {
             dispatch({ type: "PostComment", payload: res.data })
             console.log(res.data);
         } catch (e) {
-            dispatch({ type: "getErrors", payload: "Error through Loadin Data" + e })
+            dispatch({ type: "getErrors", payload: "Error through Loadin Data" })
         }
     }
 }
