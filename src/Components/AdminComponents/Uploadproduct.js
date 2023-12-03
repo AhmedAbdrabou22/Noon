@@ -5,7 +5,7 @@ import { getAllCategory } from '../../redux/actions/GetAllCategoryAction';
 import { GetGovern } from '../../redux/actions/GetGovern';
 import baseUrl from '../../Api/baseUrl';
 import imageDefault from "../../Images/logoLepgo.png"
-import {StoreProduct} from '../../redux/actions/UploadProduct';
+import { StoreProduct } from '../../redux/actions/UploadProduct';
 import axios from 'axios';
 
 const Uploadproduct = () => {
@@ -115,107 +115,111 @@ const Uploadproduct = () => {
             }
         }
     }
-    const allUpload = useSelector(state=>state.UploadProductRedcuer.postProducts);
-    if(allUpload){
-        if(allUpload.data){
+    const allUpload = useSelector(state => state.UploadProductRedcuer.postProducts);
+    if (allUpload) {
+        if (allUpload.data) {
             success("تم رفع المنتج")
         }
     }
     return (
         <div>
-            <form className='text-center py-3 mx-auto'>
-                <div className='mx-auto text-center w-50'>
-                    <div className="file-input">
-                        <input type="file" id="file" accept="image/*" multiple={true} max={`4`} onChange={handleImageUpload} style={{ visibility: "hidden" }} />
-                        <img src={imageDefault} alt="Select images" onClick={handleLabelClick} className='w-50' />
-                    </div>
-                    <div className="image-container">
-                        {images.map((image, index) => (
-                            <img key={index} src={URL.createObjectURL(image)} alt={`Image ${index}`}
-                                style={{ width: "100px", height: "100px" }} className='mx-2' />
-                        ))}
-                    </div>
-                </div>
-                <div className='mt-3'>
-                    <select placeholder='تحديد نوع المنتج' className='w-50 fields' onChange={(e) => setCategoryID(e.target.value)}>
-                        <option hidden>اختر التصنيف</option>
-                        {
-                            categories.data ? (
-                                categories.data.map((item) => {
-                                    return (
-                                        <option value={item.id}>{item.title_ar}</option>
-                                    )
-                                })
-                            ) : null
-                        }
-                    </select>
-                </div>
-                <div className='descData mx-auto'>
-                    <div>
-                        <input type='text' placeholder='اسم المنتج' value={title} onChange={(e) => setTitle(e.target.value)} className='fields descDataOther mt-4' />
-                    </div>
-                </div>
-                <div className='w-50 mx-auto'>
-                    <div>
-                        <input type='number' placeholder='سعر الحجز' value={amount} className='fields w-100 mt-4' onChange={(e) => setAmount(e.target.value)} />
-                    </div>
-                </div>
+            {
+                user.is_verified === "1" ? (
+                    <form className='text-center py-3 mx-auto'>
+                        <div className='mx-auto text-center w-50'>
+                            <div className="file-input">
+                                <input type="file" id="file" accept="image/*" multiple={true} max={`4`} onChange={handleImageUpload} style={{ visibility: "hidden" }} />
+                                <img src={imageDefault} alt="Select images" onClick={handleLabelClick} className='w-50' />
+                            </div>
+                            <div className="image-container">
+                                {images.map((image, index) => (
+                                    <img key={index} src={URL.createObjectURL(image)} alt={`Image ${index}`}
+                                        style={{ width: "100px", height: "100px" }} className='mx-2' />
+                                ))}
+                            </div>
+                        </div>
+                        <div className='mt-3'>
+                            <select placeholder='تحديد نوع المنتج' className='w-50 fields' onChange={(e) => setCategoryID(e.target.value)}>
+                                <option hidden>اختر التصنيف</option>
+                                {
+                                    categories.data ? (
+                                        categories.data.map((item) => {
+                                            return (
+                                                <option value={item.id}>{item.title_ar}</option>
+                                            )
+                                        })
+                                    ) : null
+                                }
+                            </select>
+                        </div>
+                        <div className='descData mx-auto'>
+                            <div>
+                                <input type='text' placeholder='اسم المنتج' value={title} onChange={(e) => setTitle(e.target.value)} className='fields descDataOther mt-4' />
+                            </div>
+                        </div>
+                        <div className='w-50 mx-auto'>
+                            <div>
+                                <input type='number' placeholder='سعر الحجز' value={amount} className='fields w-100 mt-4' onChange={(e) => setAmount(e.target.value)} />
+                            </div>
+                        </div>
 
-                <div className='d-flex mx-auto text-center w-50 justify-content-between mt-4'>
-                    <div>
-                        <input type='text' placeholder='مدة الحجز' value={duration} className='fields w-100' onChange={(e) => setDuration(e.target.value)} />
-                    </div>
-                    <div className='w-50'>
-                        <select className='fields' style={{ width: "95%" }} onChange={(e) => setEnum_durations(e.target.value)}>
-                            <option hidden>مدة الحجز</option>
-                            <option value="day">يوم</option>
-                            <option value="week">اسبوع</option>
-                            <option value="month">شهر</option>
-                            <option value="year">سنه</option>
-                        </select>
-                    </div>
-                </div>
+                        <div className='d-flex mx-auto text-center w-50 justify-content-between mt-4'>
+                            <div>
+                                <input type='text' placeholder='مدة الحجز' value={duration} className='fields w-100' onChange={(e) => setDuration(e.target.value)} />
+                            </div>
+                            <div className='w-50'>
+                                <select className='fields' style={{ width: "95%" }} onChange={(e) => setEnum_durations(e.target.value)}>
+                                    <option hidden>مدة الحجز</option>
+                                    <option value="day">يوم</option>
+                                    <option value="week">اسبوع</option>
+                                    <option value="month">شهر</option>
+                                    <option value="year">سنه</option>
+                                </select>
+                            </div>
+                        </div>
 
 
-                <div className='d-flex w-50 mx-auto text-center justify-content-between mt-4 filed'>
-                    <div>
-                        <select className='fields mt-2' style={{ width: "150%" }} onChange={onSelectLocation}>
-                            <option hidden>اختر المحافظه</option>
-                            {
-                                governments && governments.data ? (
-                                    governments.data.data.map((item) => {
-                                        return (
-                                            <option value={item.id}>{item.name}</option>
-                                        )
-                                    })
-                                ) : null
-                            }
-                        </select>
-                    </div>
-                    <div>
-                        <select className='fields mt-2' style={{ width: "100%" }} name="cityId"
-                            onChange={onSelectCity}>
-                            <option hidden>مدينه</option>
-                            {
-                                allCity.data ? (
-                                    allCity.data.data.map((item) => {
-                                        return (
-                                            <option value={item.id}>{item.name}</option>
-                                        )
-                                    })
-                                ) : null
-                            }
-                        </select>
-                    </div>
-                </div>
-                <div style={{ textAlign: "right" }} className='descData mx-auto'>
-                    <textarea placeholder='وصف المنتج' className='fields mt-4 w-100' value={description} onChange={(e) => setDescription(e.target.value)} cols="40" id="myTextarea" rows="50"></textarea>
-                </div>
-                <div style={{ textAlign: "right" }} className='descData mx-auto'>
-                    <textarea placeholder='شروط حجز المنتج' value={conditions} onChange={(e) => setConditions(e.target.value)} className='fields mt-4 w-100' cols="40" id="myTextarea" rows="50"></textarea>
-                </div>
-                <button className='btn text-light bg-primary mt-2' onClick={handleSubmitProduct}>اضف المنتج الان</button>
-            </form>
+                        <div className='d-flex w-50 mx-auto text-center justify-content-between mt-4 filed'>
+                            <div>
+                                <select className='fields mt-2' style={{ width: "150%" }} onChange={onSelectLocation}>
+                                    <option hidden>اختر المحافظه</option>
+                                    {
+                                        governments && governments.data ? (
+                                            governments.data.data.map((item) => {
+                                                return (
+                                                    <option value={item.id}>{item.name}</option>
+                                                )
+                                            })
+                                        ) : null
+                                    }
+                                </select>
+                            </div>
+                            <div>
+                                <select className='fields mt-2' style={{ width: "100%" }} name="cityId"
+                                    onChange={onSelectCity}>
+                                    <option hidden>مدينه</option>
+                                    {
+                                        allCity.data ? (
+                                            allCity.data.data.map((item) => {
+                                                return (
+                                                    <option value={item.id}>{item.name}</option>
+                                                )
+                                            })
+                                        ) : null
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div style={{ textAlign: "right" }} className='descData mx-auto'>
+                            <textarea placeholder='وصف المنتج' className='fields mt-4 w-100' value={description} onChange={(e) => setDescription(e.target.value)} cols="40" id="myTextarea" rows="50"></textarea>
+                        </div>
+                        <div style={{ textAlign: "right" }} className='descData mx-auto'>
+                            <textarea placeholder='شروط حجز المنتج' value={conditions} onChange={(e) => setConditions(e.target.value)} className='fields mt-4 w-100' cols="40" id="myTextarea" rows="50"></textarea>
+                        </div>
+                        <button className='btn text-light bg-primary mt-2' onClick={handleSubmitProduct}>اضف المنتج الان</button>
+                    </form>
+                ) : (<h2 className='text-center'>يجب ان تقوم بتفعيل الايميل لكي تستطيع ان ترفع المنتج</h2>)
+            }
         </div>
     )
 }
