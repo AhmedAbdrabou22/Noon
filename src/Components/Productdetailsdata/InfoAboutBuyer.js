@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import warrent from "../../Images/warranty.svg"
 import Locker from "../../Images/noon-locker.svg"
 import Free from "../../Images/free_returns.svg"
 import down from "../../Images/download.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactStars from "react-rating-stars-component";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { Col, Container, Row } from 'react-bootstrap'
+
 const InfoAboutBuyer = (props) => {
-    console.log(props.rate);
-    console.log(props.reviews);
+    const [rateData, setRateData] = useState(0);
+
+    const setting = {
+        size: 20,
+        count: 5,
+        color: "#3B3B3B",
+        activeColor: "#ffc107",
+        value: 0.5,
+        a11y: true,
+        isHalf: true,
+        emptyIcon: <i className="far fa-star" />,
+        halfIcon: <i className="fa fa-star-half-alt" />,
+        filledIcon: <i className="fa fa-star" />,
+        onChange: (newValue) => {
+            setRateData(newValue);
+        },
+    };
     return (
         <div>
             <div className='d-flex  align-items-center' style={{ borderBottom: "1px solid #f7f7fa", padding: "10px" }}>

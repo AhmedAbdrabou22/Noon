@@ -1,21 +1,20 @@
 const initial = {
-    createUSer: [],
-    loginUSer: [],
+    posts:[],
     loading: true,
 }
 
-const UserReducer = (state = initial, action) => {
+const CommentReducer = (state = initial, action) => {
     switch (action.type) {
-        case "getAllUsers":
+        case "PostComment":
             return {
                 ...state,
-                createUSer: action.payload,
+                posts: action.payload,
                 loading: false
             }
-        case "getLoginUsers":
+        case "getErrors":
             return {
                 ...state,
-                loginUSer: action.payload,
+                posts: action.payload,
                 loading: false
             }
         default: 
@@ -23,4 +22,4 @@ const UserReducer = (state = initial, action) => {
     }
 }
 
-export default UserReducer
+export default CommentReducer

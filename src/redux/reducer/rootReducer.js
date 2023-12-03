@@ -6,7 +6,7 @@ import UpdateDetailsReducer from "./UpdateDetailsReducer"
 import GetGoverReducer from "./GetGoverReducer"
 import UploadProductRedcuer from "./UploadProductReducer"
 import MyProducts from "./Getmyproductsreducer"
-
+import CommentReducer from './CommentReducer'
 export default combineReducers({
     ProductReducer : ProductReducer,
     CategoryReducer:CategoryReducer,
@@ -15,4 +15,5 @@ export default combineReducers({
     GetGoverReducer:GetGoverReducer,
     UploadProductRedcuer:UploadProductRedcuer,
     MyProducts:MyProducts,
+    CommentReducer:CommentReducer,
 })

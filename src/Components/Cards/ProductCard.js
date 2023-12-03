@@ -4,10 +4,19 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from "react-router-dom"
 const ProductCard = ({ image, title, desc, amount, totalRate, discount , id}) => {
+    const navigate = useNavigate();
+    // if(id){
+    //     // window.location.reload();
+    // }
+    const reloadPage = ()=>{
+        setTimeout(()=>{
+            window.location.reload();
+        } , 100)
+    }
     return (
         <div>
             <Link to={`/product/${id}`} style={{textDecoration:"none"}}>
-                <Card style={{ maxHeight: "100%" }}>
+                <Card style={{ maxHeight: "100%" }} onClick={reloadPage}>
                     <Card.Img variant="top" src={image} style={{ height: "35vh" }} />
                     <Card.Body>
                         <Card.Title style={{ fontSize: "13px", fontWeight: "bold" }}>{title}</Card.Title>

@@ -381,6 +381,47 @@ select, select option {
 }
 /**Style Info About Byer */
 
+/**Style Usr Div */
+.userDiv{
+    width:100%;
+    /* height: 50px; */
+    padding: 10px;
+    background-color: #f7f7fa;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.userImage{
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+textarea{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    width:100% !important;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    outline: none;
+    padding:15px;
+}
+.commentBtn{
+    background-color: rgb(254, 238, 0);
+}
+.commentBtn:hover{
+    background-color: rgb(254, 238, 0);
+}
+/**Style Usr Div */
+
 @media(max-width:768px) {
     .descData{
         width:100%;
@@ -504,3 +545,4 @@ select, select option {
         display: block;
     }
 }
+

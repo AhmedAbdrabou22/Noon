@@ -11,7 +11,6 @@ const RelatedDataProduct = ({ place, rate, price, desc, title }) => {
         borderRadius:"10px"
     }
     const params = useParams();
-    console.log(params.id);
     return (
         <div>
             <div className='relatedData' style={{ marginRight: "25px" }}>
