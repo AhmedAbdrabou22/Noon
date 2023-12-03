@@ -15,5 +15,20 @@ const PostCommenttoProduct = (data) => {
         }
     }
 }
+const DelteComment = (data) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+    }
+    return async (dispatch) => {
+        try {
+            let res = await baseURL.delete(`/api/v1/reviews/${data}` , config) 
+            dispatch({ type: "DelComment", payload: res })
+        } catch (e) {
+            dispatch({ type: "getErrors", payload: "Error through Loadin Data" + e })
+        }
+    }
+}
 
-export {PostCommenttoProduct}
+export {PostCommenttoProduct , DelteComment}

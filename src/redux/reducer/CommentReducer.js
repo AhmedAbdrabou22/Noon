@@ -1,5 +1,6 @@
 const initial = {
     posts:[],
+    dels:[],
     loading: true,
 }
 
@@ -9,6 +10,12 @@ const CommentReducer = (state = initial, action) => {
             return {
                 ...state,
                 posts: action.payload,
+                loading: false
+            }
+        case "DelComment":
+            return {
+                ...state,
+                dels: action.payload,
                 loading: false
             }
         case "getErrors":

@@ -4,28 +4,24 @@ import Locker from "../../Images/noon-locker.svg"
 import Free from "../../Images/free_returns.svg"
 import down from "../../Images/download.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ReactStars from "react-rating-stars-component";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { Col, Container, Row } from 'react-bootstrap'
-
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux"
+import { DelteComment } from '../../redux/actions/Comment'
 const InfoAboutBuyer = (props) => {
+    let userLogin = JSON.parse(localStorage.getItem('user'));
+    console.log(userLogin.id);
     const [rateData, setRateData] = useState(0);
 
-    const setting = {
-        size: 20,
-        count: 5,
-        color: "#3B3B3B",
-        activeColor: "#ffc107",
-        value: 0.5,
-        a11y: true,
-        isHalf: true,
-        emptyIcon: <i className="far fa-star" />,
-        halfIcon: <i className="fa fa-star-half-alt" />,
-        filledIcon: <i className="fa fa-star" />,
-        onChange: (newValue) => {
-            setRateData(newValue);
-        },
-    };
+
+    const params = useParams();
+    const dispatch = useDispatch();
+
+    const deleteIt = async ()=>{
+        await dispatch(DelteComment(params.id))
+    }
+
     return (
         <div>
             <div className='d-flex  align-items-center' style={{ borderBottom: "1px solid #f7f7fa", padding: "10px" }}>
@@ -66,12 +62,23 @@ const InfoAboutBuyer = (props) => {
             <div>
                 <p>كل التعليقات الخاصه بالمنتج</p>
                 {
-                    props.reviews.map((comment)=>{
-                        return(
+                    props.reviews.map((comment) => {
+                        return (
                             <div key={comment.id} className='reviews mt-3'>
-                                <div className=''>
-                                    <img src={comment.user.image} alt="data" style={{width:"50px" , height:"50px" , borderRadius:"50%" , verticalAlign:"middle"}}/>
-                                    <span className='mx-2'>{comment.user.name}</span>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <div>
+                                        <img src={comment.user.image} alt="data" style={{ width: "50px", height: "50px", borderRadius: "50%", verticalAlign: "middle" }} />
+                                        <span className='mx-2'>{comment.user.name}</span>
+                                    </div>
+                                    {
+                                        comment.user.id === userLogin.id ? (
+
+                                            <div>
+                                                <button className='btn mt-2' onClick={deleteIt} style={{color:"red"}}><FontAwesomeIcon icon={faTrash} /></button>
+                                            </div>
+
+                                        ) : null
+                                    }
                                 </div>
                                 <p className='mt-3'>{comment.comment}</p>
                             </div>
